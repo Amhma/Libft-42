@@ -6,7 +6,7 @@
 /*   By: amahla <amahla@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 12:34:09 by amahla            #+#    #+#             */
-/*   Updated: 2022/05/02 12:34:12 by amahla           ###   ########.fr       */
+/*   Updated: 2022/05/03 10:40:26 by amahla           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ static void	strscpy(char **split, char const *s, char c)
 			x++;
 			i++;
 		}
-		if (*(s + i))
-			*(split[y] + x) = '\0';
 		y++;
 	}
 }
@@ -86,14 +84,14 @@ char	**ft_split(char const *s, char c)
 
 	y = -1;
 	i = 0;
-	split = malloc((count_wd(s, c) + 1) * sizeof(char *));
+	split = ft_calloc((count_wd(s, c) + 1), sizeof(char *));
 	if (!split)
 		return (NULL);
 	while (++y < count_wd(s, c) && s)
 	{
 		while (*(s + i) && *(s + i) == c)
 			i++;
-		split[y] = malloc((slen_wd(s + i, c) + 1) * sizeof(char));
+		split[y] = ft_calloc((slen_wd(s + i, c) + 1), sizeof(char));
 		if (!split[y])
 		{
 			free_array(split, y);
