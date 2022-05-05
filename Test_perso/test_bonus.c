@@ -6,6 +6,15 @@ void	test(void *s)
 	printf("Fonction printf : - %s -\n", (char *)s);;
 }
 
+void	ft_put_str(char *str)
+{
+	int	i = 0;
+
+	while (*(str + i++))
+		write(1, str + i, 1);
+	write(1, "\n", 1);
+}
+
 /*int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
     size_t  i;
@@ -68,7 +77,7 @@ void *ft_strdup2(void *str)
     dst = malloc((size + 1) * sizeof(char));
     if (!dst)
         return (NULL);
-	i = 0;
+i = 0;
     while (i < size)
     {   
         *(dst + i) = *(s1 + i); 
@@ -226,6 +235,7 @@ int	main(void)
 	printf("\n ------ \n\n");
 
 	printf("test ft_lstmapi\n");
+
 	t_list	*begin_list2;
 	begin_list2 = NULL;
 	begin_list2 = ft_lstmap(begin_lst, &ft_strdup2, &free);

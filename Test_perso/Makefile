@@ -9,26 +9,26 @@ SRC		= test_ctype.c	test_other.c	test_stdlib.c test_string.c
 SRC_BS	= test_bonus.c
 OBJ		= $(SRC:.c=.o)
 OBJ_BS	= $(SRC_BS:.c=.o)
-LIB		= -L ../../Libft-42 -lft
-INC		= -I ../../Libft-42/
+LIB		= -L ../libft -lft
+INC		= -I .
 RM		= rm -f
 
 all			: $(NAME1) $(NAME2) $(NAME3) $(NAME4)
 
 $(NAME1)	: $(OBJ)
-	$(CC) $(LIB) -o $@ test_string.o
+	$(CC) -o $@ test_string.o $(LIB) -lbsd
 
 $(NAME2)	: $(OBJ)
-	$(CC) $(LIB) -o $@ test_other.o
+	$(CC) -o $@ test_other.o $(LIB)
 
 $(NAME3)	: $(OBJ)
-	$(CC) $(LIB) -o $@ test_ctype.o
+	$(CC) -o $@ test_ctype.o $(LIB)
 
 $(NAME4)	: $(OBJ)
-	$(CC) $(LIB) -o $@ test_stdlib.o
+	$(CC) -o $@ test_stdlib.o $(LIB)
 
 bonus	: $(OBJ_BS)
-	$(CC) $(LIB) -o $(NAME5) test_bonus.o
+	$(CC) -o $(NAME5) test_bonus.o $(LIB)
 
 .c.o		:
 	 $(CC) $(CFLAGS) $(INC) -o $@ -c $<

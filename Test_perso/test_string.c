@@ -1,11 +1,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<limits.h>
+#include<bsd/bsd.h>
 #include"libft.h"
 
 int	main(void)
 {
 	char	b[30];
+
 
 //	test memset :
 	printf("Test memset :\n");
@@ -17,6 +19,7 @@ int	main(void)
 	printf("%s\n",(char *)(ft_memset(b, 49, 29)));
 
 	printf("\n---------\n\n");
+
 
 //	test bzero :
 	printf("Test bzero :\n");
@@ -45,16 +48,18 @@ int	main(void)
 	char	c[30] = "Comment";
 	char	d[30] = "Comment";
 	printf("Test memmove vs memcpy :\n");
-	printf("%s\n",(char *)(memmove(c + 2, c, 5)));
-	printf("%s\n", c);
-	printf("%s\n",(char *)(memcpy(d + 2, d, 5)));
-	printf("%s\n", d);
+	printf("memmove : %s\n",(char *)(memmove(c + 2, c, 5)));
+//	printf("premiere chaine : %s\n", c);
+	printf("memcpy : %s\n",(char *)(memcpy(d + 2, d, 5)));
+//	printf("deuxieme chaine : %s\n", d);
 	printf("reinitalisation de la string...\n");	
 	memcpy(c, "Comment", 8);
 	memcpy(d, "Comment", 8);
 	printf("Test ft_memmove vs memcpy :\n");
-	printf("%s\n",(char *)(ft_memmove(c + 2, c, 5)));
-	printf("%s\n",(char *)(memcpy(d + 2, d, 5)));
+	printf("memmove : %s\n",(char *)(ft_memmove(c + 2, c, 5)));
+//	printf("premiere chaine : %s\n", c);
+	printf("ft_memcpy : %s\n",(char *)(memcpy(d + 2, d, 5)));
+//	printf("deuxieme chaine : %s\n", d);
 
 	printf("\n---------\n\n");
 
@@ -67,7 +72,7 @@ int	main(void)
 	printf("\n---------\n\n");
 
 //	test memcmp :
-	char *a = "Coucou comment ca va ?";
+	char *a = "Cucou comment ca va ?";
 
 	printf("Test memcmp :\n");
 	printf("%d\n", memcmp(b, a, 22));

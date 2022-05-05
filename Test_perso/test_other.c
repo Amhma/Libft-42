@@ -110,7 +110,7 @@ int	main(void)
 	int		y;
 
 	y = 0;
-	split = ft_split("   Coucou    comment    vas   tu  ?!   ", ' ');
+	split = ft_split("   Coucou    comment    vas   tu  ?!   ", 'c');
 	while (split[y])
 		printf("%s\n", split[y++]);
 	while (y >= 0)
